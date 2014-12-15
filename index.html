@@ -19,8 +19,21 @@
                 <h2>Mean Milano</h2>
                 <img src="images/MM_logo.png" height="160" width="160" alt="">
             </section>
+            <section data-background="#00AAD2">
+                <h1>REAL LIFE ES6</h1>
+                <ul class="block" style="margin-right: 160px;">
+                    <li><img src="images/gl.jpg" height="80" width="80" alt=""></li>
+                    <li>Giovanni Lela</li>
+                    <li>CTO @ LinkMe</li>    
+                </ul>
+                <ul class="block">
+                    <li><img src="images/ms.jpg" height="80" width="80" alt=""></li>
+                    <li>Matteo Scandolo</li>
+                    <li>MEAN Dev @ LinkMe</li>
+                </ul>
+            </section>
 <!-- ========================================================== JS History ===================================================== -->
-            <section>
+            <section data-background="#F0DB4F" class="dark-content">
                 <section>
                     <h1>Javascript</h1>
                     <h2>An introduction</h2>
@@ -100,12 +113,53 @@
 <!-- ========================================================== Template Strings ===================================================== -->
             <section>
                 <h2>Template Strings</h2>
+                <p>Allows string literals with embedded expressions in them.</p>
                 <code class="prettyprint">
                     var name = "Matteo";<br>
                     console.log(`Hello, ${name}!`);
                 </code>
             </section>
 <!-- ========================================================== Arrow Functions ===================================================== -->
+            <section>
+                <h2>Arrow Functions</h2>
+                <p>The goal of Arrow Functions is to address and resolve several common pain points of traditional Function Expression:</p>
+                <ul>
+                    <li>Lexical this binding</li>
+                    <li>Shorter syntactical form (() => {} vs. function () {})</li>
+                </ul>
+                <code class="prettyprint">
+                    //before <br>
+                    var f = function(x){return x + 1;} <br>
+    
+                    //es6 <br>
+                    var f = x => x+1;
+                    <br><br>
+                    console.log(f(2));
+                </code>
+            </section>
+<!-- ========================================================== Default Parameters ===================================================== -->
+            <section>
+                <h2>Default Parameter Value</h2>
+                <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. This means that you no longer have to do options = options || {};.</p>
+                <code class="prettyprint">
+                    var f = function(x = 5){return x + 1};<br>
+                    var f = (x = 5) => x + 1;
+                </code>
+            </section>      
+<!-- ========================================================== Hiring ===================================================== -->
+            <section>
+                <section>
+                    <h2>M&M Milano !== LinkMe</h2>
+                </section>
+                <section>
+                    <h4>But...we are looking for an experienced Node Developer</h4>
+
+                    <h2>
+                        Write @
+                        <a href="mailto: jobs@link-me.it">jobs@link-me.it</a>
+                    </h2>
+                </section>
+            </section>
         </div>
     </div>
     <script>

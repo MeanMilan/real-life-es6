@@ -198,37 +198,53 @@ body {
   border-top: 1px solid #111;
   margin: 20px auto;
 }
+/* line 163, ../sass/main.scss */
+.dark-content pre, .dark-content .pre {
+  border: 1px solid #333 !important;
+  border-radius: 5px;
+  padding: 5px !important;
+  background: #666;
+  color: #fff;
+}
+/* line 171, ../sass/main.scss */
+.dark-content a {
+  color: #b97b1a !important;
+}
+/* line 175, ../sass/main.scss */
+.dark-content a:hover {
+  color: #8d5d13 !important;
+}
 
-/* line 164, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .separator {
   height: 1px;
   background: #ccc;
   margin: 40px auto !important;
 }
 
-/* line 170, ../sass/main.scss */
+/* line 186, ../sass/main.scss */
 .fa {
   font-family: FontAwesome !important;
 }
 
-/* line 174, ../sass/main.scss */
+/* line 190, ../sass/main.scss */
 .social {
   font-size: 2em !important;
   margin-top: 50px !important;
 }
-/* line 177, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .social a:not(:last-child) {
   margin-right: 20px;
 }
 
-/* line 182, ../sass/main.scss */
+/* line 198, ../sass/main.scss */
 ul.block {
   list-style-type: none;
   margin-top: 20px;
   padding-top: 20px;
   text-align: center;
 }
-/* line 188, ../sass/main.scss */
+/* line 204, ../sass/main.scss */
 ul.block li:not(:last-child) {
   border-bottom: 1px solid #ccc;
   padding-left: 20px;
@@ -237,17 +253,17 @@ ul.block li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-/* line 197, ../sass/main.scss */
+/* line 213, ../sass/main.scss */
 img {
   max-height: 300px !important;
 }
 
-/* line 201, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 .pre {
   font-family: monospace !important;
 }
 
-/* line 205, ../sass/main.scss */
+/* line 221, ../sass/main.scss */
 pre, .pre {
   border: 1px solid #ccc !important;
   border-radius: 5px;
@@ -255,7 +271,14 @@ pre, .pre {
   background: #333;
 }
 
-/* line 212, ../sass/main.scss */
+/* line 228, ../sass/main.scss */
+code {
+  display: block;
+  margin-top: 30px !important;
+  text-align: left !important;
+}
+
+/* line 234, ../sass/main.scss */
 .text-center, .text-center pre {
   text-align: center;
 }
