@@ -140,12 +140,39 @@
 <!-- ========================================================== Default Parameters ===================================================== -->
             <section>
                 <h2>Default Parameter Value</h2>
-                <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. This means that you no longer have to do options = options || {};.</p>
+                <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. <br>This means that you no longer have to do options = options || {};</p>
                 <code class="prettyprint">
                     var f = function(x = 5){return x + 1};<br>
                     var f = (x = 5) => x + 1;
                 </code>
             </section>      
+<!-- ========================================================== REST ===================================================== -->
+            <section>
+                <h2>REST</h2>
+                <p>Rest parameters provide a cleaner way of dealing with functions that takes arbitrary number of parameters than using arguments. <br>
+                Basically your parameters are convertend in an array </p>
+                <code class="prettyprint">
+                    var f = function(...args){ <br>
+                        var tot = 0; <br>
+                        for (var i = 0; i < args.length; i++ ){ <br>
+                            tot += args[i]; <br>
+                        } <br>
+                        return tot/args.length; <br>
+                    } <br>
+                    <br> <br>
+                    f(12, 8, 16, 32); //17
+                </code>
+            </section>
+<!-- ========================================================== SPREAD ===================================================== -->
+            <section>
+                <h2>SPREAD</h2>
+                <p>The spread construct allows an expression to be expanded in places where multiple arguments are expected</p>
+                <code class="prettyprint">
+                    var args = [12, 99, 17] <br>
+                    var f = (x, y, z) => Math.min(x, y, z);<br>
+                    f(...args);
+                </code>
+            </section>
 <!-- ========================================================== Hiring ===================================================== -->
             <section>
                 <section>
