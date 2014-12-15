@@ -194,14 +194,21 @@ ul.block{
   }
  }
 
-#codemotion{
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  z-index: 200;
-  height: 62px;
-  width: 300px;
-  background-image: url('../images/codemotion_intro.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
+img{
+  max-height: 300px !important;
+}
+
+.pre {
+  font-family: monospace !important;
+}
+
+pre, .pre{
+  border: 1px solid #ccc !important;
+  border-radius: 5px;
+  padding: 5px !important;
+  background: #333;
+}
+
+.text-center, .text-center pre{
+  text-align: center;
 }
