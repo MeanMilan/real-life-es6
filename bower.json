@@ -1,0 +1,19 @@
+{
+  "name": "mm-presentation",
+  "version": "0.0.0",
+  "authors": [
+    "Matteo Scandolo <matteo.scandolo@link-me.it>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "hakimel/reveal.js#~2.6.2"
+  }
+}
