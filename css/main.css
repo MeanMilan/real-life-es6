@@ -279,6 +279,11 @@ code {
 }
 
 /* line 234, ../sass/main.scss */
+code.prettyprint {
+  padding: 5px 15px !important;
+}
+
+/* line 238, ../sass/main.scss */
 .text-center, .text-center pre {
   text-align: center;
 }
