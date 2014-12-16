@@ -53,60 +53,59 @@
                 <section>
                     <h1>JavaScript</h1>
                     <img src="images/Brendan_Eich.jpg">
-                    <p>Was invented by Brendan Eich in 1995.<br> (in ten days and not in one night)</p>
+                    <p>Was invented by Brendan Eich in May 1995.<br> (in ten days and not in one night)</p>
                 </section>
                 <section>
                     <h1>JavaScript</h1>
                     <img src="images/JavaScript-logo.png">
                     <p>Has been developed for Netscape</p>
+                    <p>And it has been realesed in Netscape 2 in September.</p>
+                </section>
+                <section>
+                    <h2>Maybe it was a bit immature...</h2>
+                    <ul class="block">
+                        <li>
+                            <code class="prettyprint">
+                                x = 1.0000000000000001 <br>
+                                (x === 1) // true
+                            </code>
+                        </li>
+                        <li>
+                            <code class="prettyprint">
+                                x = ['10', '10', '10']; <br>
+                                x.map(parseInt) //[10, Nan, 2]
+                            </code>
+                        </li>
+                    </ul>
                 </section>
                 <section>
                     <h1>Javascript</h1>
                     <img src="images/ecma.jpg">
                     <p>Became an ECMA standard in 1997.</p>
-                </section>
-<!-- ========================================================== JS Wars ===================================================== -->
-                <section>
-                    <h1>Js Wars</h1>
-                    <h3>Once ECMAScript was standardised</h3>
-                    <h3>JavaScript became Netscape’s dialect</h3>
+                    <p>It is also know as ECMA-262</p>
                 </section>
                 <section>
-                    <h1>Js Wars</h1>
-                    <h3>Microsoft launch JScript in response.</h3>
-                </section>
-                <section>
-                    <h1>Js Wars</h1>
-                    <h3>This lead to new feature like</h3>
-                    <div class="text-center">
-                        <pre>blink (element)</pre>
-                        <pre>innerHTML (property)</pre>
-                        <pre>XMLHttpRequest</pre>
-                    </div>
-                </section>
-                <section>
-                    <h4>The development of the Document Object Model (DOM) was central to the browser wars.</h4>
-                    <p>It comes in 2000 with W3C DOM Level 2 specification</p>
-                    <p>Finally we have <span class="pre">getElementById</span> and the event model</p>
-                </section>
-                <section>
-                    <h1>Asynchronous</h1>
+                    <h1>ECMAScript</h1>
+                    <h3>Standard specification for the language</h3>
+                    <h3>Derived languages born</h3>
                     <ul class="block">
-                        <li>In IE from 1995 (XMLHttpRequest)</li>
-                        <li>In Mozilla from 2002 (adding support to Gecko)</li>
-                        <li><a href="http://www.adaptivepath.com/ideas/essays/archives/000385.php" target="_blank">Ajax: A New Approach to Web Applications</a> in 2005 (Jesse James Garret)</li>
-                        <li>The W3C published a working draft (2006)</li>
+                        <li>ActionScript (Adobe)</li>
+                        <li>JScript (Microsoft)</li>
                     </ul>
                 </section>
                 <section>
-                    <h1>AJAX</h1>
-                    <h1>WEB 2.0</h1>
-                    <h2>Libraries</h2>
+                    <h1>Versions</h1>
                     <ul class="block">
-                        <li>Dojo</li>
-                        <li>Scriptaculous</li>
-                        <li>jQuery</li>
+                        <li>ES3 - 1999 (regEx - Try, Catch)</li>
+                        <li>ES4 - tageted 2008, never saw the light...</li>
+                        <li>ES5 - 2009 (Json, Bind, Map, ...)</li>
+                        <li>ES6 - 2014?</li>
                     </ul>
+                </section>
+                <section>
+                    <h1>Javascript Arise</h1>
+                    <h4>Web 2.0 - Ajax - Google Maps (2005)</h4>
+                    <h4>Js on the server. NodeJs. (2009)</h4>
                 </section>
             </section>
 <!-- ========================================================== Perchè ES6 Gio ===================================================== -->
@@ -545,13 +544,44 @@
                         console.log(`Hello, ${name}!`);
                     </code>
                 </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        &lt;div id="js-element"&gt;initial content&lt;/div&gt;<br>
+                        &lt;script&gt;<br>
+                            var name = "Matteo";<br>
+                            var element = document.getElementById('js-element');<br>
+                            element.innerHTML = `Hello, ${name}!`;<br>
+                        &lt;/script&gt;
+                    </code>
+                </section>
+    <!-- ========================================================== Default Parameters ===================================================== -->
+                <section>
+                    <h2>Default Parameter Value</h2>
+                    <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. <br>This means that you no longer have to do <i>x = x || {};</i></p>
+                    <code class="prettyprint">
+                        var f = function(x = 5){return x + 1};<br>
+                        <!-- var f = (x = 5) => x + 1; -->
+                    </code>
+                </section>   
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        var getUser = function(id = me){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$.get('api/user/' + id, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(res){return res}, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(e){throw new Error(e)} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;); <br>
+                        }
+                    </code>
+                </section>   
     <!-- ========================================================== Arrow Functions ===================================================== -->
                 <section>
                     <h2>Arrow Functions</h2>
                     <p>The goal of Arrow Functions is to address and resolve several common pain points of traditional Function Expression:</p>
                     <ul>
                         <li>Lexical this binding</li>
-                        <li>Shorter syntactical form (() => {} vs. function () {})</li>
+                        <li>Shorter syntactical form</li>
                     </ul>
                     <code class="prettyprint">
                         //before <br>
@@ -563,13 +593,15 @@
                         console.log(f(2));
                     </code>
                 </section>
-    <!-- ========================================================== Default Parameters ===================================================== -->
                 <section>
-                    <h2>Default Parameter Value</h2>
-                    <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. <br>This means that you no longer have to do options = options || {};</p>
+                    <h2>In Practice</h2>
                     <code class="prettyprint">
-                        var f = function(x = 5){return x + 1};<br>
-                        var f = (x = 5) => x + 1;
+                        var user; <br><br>
+                        getUser() <br>
+                        .then( <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;res => user = res, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;e => throw new Error(e) <br>
+                        ); <br>
                     </code>
                 </section>
     <!-- ========================================================== REST ===================================================== -->
@@ -579,14 +611,28 @@
                     Basically your parameters are convertend in an array </p>
                     <code class="prettyprint">
                         var f = function(...args){ <br>
-                            var tot = 0; <br>
-                            for (var i = 0; i < args.length; i++ ){ <br>
-                                tot += args[i]; <br>
-                            } <br>
-                            return tot/args.length; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var tot = 0; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i < args.length; i++ ){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot += args[i]; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return tot/args.length; <br>
                         } <br>
                         <br> <br>
                         f(12, 8, 16, 32); //17
+                    </code>
+                </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        var cart = {list: []}; <br>
+                        cart.add = function(...items){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;items.forEach(item => this.list.push(item)); <br>
+                        }; <br>
+                        <br>
+                        cart.add('ball'); <br>
+                        cart.add('tree', 'soap');
+                        <br><br>
+                        console.log(cart.list);
                     </code>
                 </section>
     <!-- ========================================================== SPREAD ===================================================== -->
@@ -597,6 +643,23 @@
                         var args = [12, 99, 17] <br>
                         var f = (x, y, z) => Math.min(x, y, z);<br>
                         f(...args);
+                    </code>
+                </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <p>This example rely on <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> and <a href="https://lodash.com">Lodash</a></p>
+                    <code class="prettyprint">
+                        var targetFunction = _.curry(function(a,b,c)); <br>
+                        targetFunction('Hello'); <br>
+                        <br>
+                        var functionList = [fn1, fn2]; <br>
+                        // fn1 => return name | fn2 => return surname;<br>
+                        Promise //bluebird <br>
+                        .all(functionList) //accept an array of Promise <br>
+                        .then( function(res){ //receive an array <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;//spread the array into arguments <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;targetFunction(...res); <br>
+                        }); <br>
                     </code>
                 </section>
             </section>
@@ -620,15 +683,7 @@
                         <b>20th January 2015</b> - <em>7:00 pm</em>
                     </li>
                     <li>
-                        <img src="images/cowo_login_logo.jpg" height="60" width="230" alt="">
-                        <br>
-                        <b>Coworking Login</b>
-                        <br>
-                        <em>
-                            via Stefanardo da Vimercate 28
-                            <br>
-                            20128 Milano
-                        </em>
+                        <i>Place to be defined</i>
                     </li>
                 </ul>
             </section>
