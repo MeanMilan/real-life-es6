@@ -284,6 +284,18 @@ code.prettyprint {
 }
 
 /* line 238, ../sass/main.scss */
+code.prettyprint.small {
+  font-size: 25px !important;
+  line-height: 28px;
+}
+
+/* line 243, ../sass/main.scss */
+code.prettyprint.extra-small {
+  font-size: 20px !important;
+  line-height: 22px;
+}
+
+/* line 248, ../sass/main.scss */
 .text-center, .text-center pre {
   text-align: center;
 }

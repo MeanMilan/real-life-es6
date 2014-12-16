@@ -235,6 +235,16 @@ code.prettyprint{
   padding: 5px 15px !important;
 }
 
+code.prettyprint.small{
+  font-size: 25px !important;
+  line-height: 28px;
+}
+
+code.prettyprint.extra-small{
+  font-size: 20px !important;
+  line-height: 22px;
+}
+
 .text-center, .text-center pre{
   text-align: center;
 }

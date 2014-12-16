@@ -24,7 +24,7 @@
                 <ul class="block" style="margin-right: 160px;">
                     <li><img src="images/gl.jpg" height="80" width="80" alt=""></li>
                     <li>Giovanni Lela</li>
-                    <li>CTO @ LinkMe</li>    
+                    <li>CTO @ LinkMe</li>
                 </ul>
                 <ul class="block">
                     <li><img src="images/ms.jpg" height="80" width="80" alt=""></li>
@@ -109,6 +109,39 @@
                 </section>
             </section>
 <!-- ========================================================== Perchè ES6 Gio ===================================================== -->
+
+<section>
+    <section>
+        <h1> Why ES6? </h1>
+    </section>
+
+    <section>
+        <h1> Why change javascript?</h1>
+
+        <ul>
+            <li> Stagnation is a social ill</li>
+            <li> It breeds frustration</li>
+            <li> New solutions arise</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1> Responding to stagnation </h1>
+        <p> Some solutions are good </p>
+        <p> Others are bad </p>
+    </section>
+
+    <section>
+        <h1> Evolving the standard is best</h1>
+        <p> Everybody is going to ship javascript </p>
+    </section>
+
+    <section>
+        <img src="../images/jsturd.png">
+    </section>
+
+</section>
+
 <!-- ========================================================== BASIC ES6 ===================================================== -->
             <section>
                 <section>
@@ -166,7 +199,7 @@
                     <code class="prettyprint">
                         //before <br>
                         var f = function(x){return x + 1;} <br>
-        
+
                         //es6 <br>
                         var f = x => x+1;
                         <br><br>
@@ -243,11 +276,378 @@
                     </code>
                 </section>
             </section>
-<!-- ========================================================== ADVANCED ES6 (GIO) ===================================================== -->            
+<!-- ========================================================== ADVANCED ES6 (GIO) ===================================================== -->
             <section>
                 <section>
                     <h1>Road to ES6</h1>
                     <h3>Some more interesting Features</h3>
+                </section>
+                <section>
+                    <h1> Block scoping </h1>
+
+
+                 </section>
+
+                 <section>
+                    <h2> Hoisting </h2>
+
+                    <code class="prettyprint">
+                        function f() { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;doSomething(); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var a = 1; <br>
+                        }
+                    </code>
+                    <code class="prettyprint">
+                       function f() { <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;var a; <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;doSomething(); <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;a = 1; <br>
+                        }
+                    </code>
+                 </section>
+
+                 <section>
+                    <code class="prettyprint">
+                        for (var i = 0; i < 3; i++) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var j = i * i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); <br>
+                        } <br>
+                        console.log(j); //  4
+                   </code>
+
+                   <code class="prettyprint">
+                        for (var i = 0; i < 3; i++) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;let j = i * i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); <br>
+                        } <br>
+                        console.log(j); // will throw ReferenceError
+                   </code>
+
+                 </section>
+
+                <section>
+
+                    <h2>Dangers of hoisting </h2>
+                    <p> Don't make functions within a loop </p>
+                    <code class="prettyprint">
+                        var elems = document.getElementsByClassName('myClass'), i; <br>
+                        <br>
+                        for (i = 0; i < elems.length; i++) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;elems[i].addEventListener('click', function () { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.innerHTML = i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}); <br>
+                        }
+                    </code>
+
+                </section>
+
+                <section>
+
+                    <h2> Before: ugly scoping magic </h2>
+
+                    <code class="prettyprint">
+    
+                        var elems = document.getElementsByClassName('myClass'), i; <br>
+                        <br>
+                        function makeClickHandler(i) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return function () { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.innerHTML = i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}; <br>
+                        } <br>
+                        <br>
+                        for (i = 0; i < elems.length; i++) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;elems[i].addEventListener("click", makeClickHandler(i)); <br>
+                        }
+                    </code>
+
+                </section>
+
+                <section>
+                    <h2>Now: let to the rescue </h2>
+
+                    <code class="prettyprint">
+                       for (let i = 0; i < elems.length; i++) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;elems[i].addEventListener("click", function () { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.innerHTML = i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}); <br>
+                        }
+                    </code>
+                </section>
+
+                <section>
+
+                    <h2>Const</h2>
+
+                    <p> The same as let but:</p>
+                    <ul>
+                        <li> It must be initialized </li>
+                        <li> And just once </li>
+                    </ul>
+
+                    <code class="prettyprint">
+
+                        const CONSTANT; //error <br><br>
+
+                        const CONSTANT = "Wow, I am constant"; <br><br>
+
+                        CONSTANT = "No you are not"; //error
+                    </code>
+
+                </section>
+                <section>
+                    <h1>Iterators, generators and the callback hell</h1>
+                </section>
+
+                <section>
+                    <h2>Iterator</h2>
+
+                    <p>An Iterator is an object that knows how to access items from a collection one at a time, while keeping track of its current position within that sequence<p>
+
+                    <code class="prettyprint">
+                        var lang = { name: 'JavaScript', birthYear: 1995 }; <br>
+                        var it = Iterator(lang); <br><br>
+
+                        var pair = it.next(); // Pair is ["name", "JavaScript"] <br>
+                        pair = it.next(); // Pair is ["birthYear", 1995] <br>
+                        pair = it.next(); // A StopIteration exception is thrown
+                    </code>
+
+                </section>
+
+
+                <section>
+                    <h2> Iterable </h2>
+                    <code class="prettyprint">
+
+                        function Words(str) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;this._str = str; <br>
+                        } <br><br>
+
+                        Words.prototype[Symbol.iterator] = function() { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var re = /\S+/g; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var str = this._str; <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;return { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next: function() { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var match = re.exec(str); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (match) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {value: match[0], done: false}; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {value: undefined, done: true}; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        };
+
+                    </code>
+                </section>
+
+                <section>
+
+                    <h2> for..of </h2>
+
+                    <code class="prettyprint">
+
+                        var helloWorld = new Words("Hey you"); <br>
+
+                        for (var word of helloWorld) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(word); <br>
+                        } <br><br>
+
+                        //Hello
+                        //world
+
+                    </code>
+                    <br>
+                    <p> Works also on arrays, maps, sets.. </p>
+
+                </section>
+
+                <section>
+
+                    <h1>Generators</h1>
+
+                    <ul>
+                        <li>A very special kind of iterators</li>
+                        <li>It's an iterator whose results are determined by an iterator function </li>
+                    </ul>
+
+                </section>
+
+                <section>
+
+                    <h2>Iterating on a generator</h2>
+
+                    <code class="prettyprint">
+                        function* countdown(){ <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;yield 2; //first next()<br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;yield 1; //second next() <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;yield 0; //third next() <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;//done <br>
+                        } <br><br>
+
+                        let generatorObject = countdown(); <br><br>
+
+                        generatorObject.next(); // {value : 2, done : false} <br>
+                        generatorObject.next(); // {value : 1, done : false} <br>
+                        generatorObject.next(); // {value : 0, done : false} <br>
+                        generatorObject.next(); // {value : undefined, done : true}
+                    </code>
+
+                </section>
+
+                <section>
+
+                    <h2> Talking back to a generator </h2>
+
+                    <code class="prettyprint small">
+
+                        function* countdown(){ <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;let one = yield 2; //first next()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(one);  //one <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;let two = yield 1; //second next <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(two);  //two <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;let three = yield 0; //third next <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(three);  //three <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;//done! <br>
+                        } <br><br>
+
+                        let generatorobject = countdown(); <br><br>
+
+                        generatorobject.next(); // {value : 2, done : false} <br>
+                        generatorobject.next('one'); // {value : 1, done : false} <br>
+                        generatorobject.next('two'); // {value : 0, done : false} <br>
+                        generatorobject.next('three'); // {value : undefined, done : true}
+
+                      </code>
+
+                </section>
+
+                <section>
+
+                    <h2>Hello promises</h2>
+
+                    <ul>
+                        <li>A promise is an object which represents the results of a future computation </li>
+                        <li>It allows to take action when the async operation is done</li>
+                    </ul>
+
+                </section>
+                <section>
+
+                    <h2> Using a promise </h2>
+
+                    <code class="prettyprint">
+
+                        var awesomePromise = getAsyncThings(); <br>
+
+                        awesomePromise.then( <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;//resolve <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;function(value){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('yeah :' + value); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;function(error){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('oh no'); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(error); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        );
+                    </code>
+
+                </section>
+                <section>
+
+                    <h2>Creating a promise </h2>
+
+                    <code class="prettyprint extra-small">
+                        function getAsyncThings(url) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;// Return a new promise. <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new Promise(function(resolve, reject) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Do the usual XHR stuff <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var req = new XMLHttpRequest(); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;req.open('GET', url); <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;req.onload = function() { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// This is called even on 404 etc so check the status <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (req.status === 200) { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Resolve the promise with the response text <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve(req.response); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Otherwise reject with the status text which will hopefully be a meaningful error <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspreject( new Error(req.statusText)); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}; <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Handle network errors <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;req.onerror = function() { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject( new Error('Network Error')); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}; <br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Make the request <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;req.send(); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}); <br>
+                        }
+                    </code>
+
+                </section>
+
+                <section>
+
+                    <h2> Chaining promises </h2>
+
+                    <code class="prettyprint">
+                       getStuff('stuff.json') <br>
+                        .then(function(story){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return saveInSomeDatabase(); <br>
+                        }) <br>
+                        .then(function(success){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log('saved!'); <br>
+                        });
+
+                    </code>
+
+                </section>
+
+                <section>
+
+                    <h2> Promises + generators = .. </h2>
+
+                    <code class="prettyprint small">
+                    var gen = generator(); <br><br>
+                    //get the party started <br>
+                    var generatedPromise = gen.next().value; <br><br>
+
+                    //when the promise is resolved call the next step <br><br>
+                    function nextStep(){ <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;generatedPromise.then(function(promiseResult){ <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gen.next(promiseResult); <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                    } <br><br>
+
+                    nextStep();
+                    </code>
+                </section>
+
+                <section>
+                    <h2> (Semi) coroutines </h2>
+                    
+                    <code class="prettyprint">
+                        Promise.coroutine(function* () { <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var tweets = yield $.get('tweets.json'); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var profile = yield $.get('profile.json'); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var friends = yield $.get('friends.json'); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(tweets, profile, friends); <br>
+                        })();
+                    </code>
+
                 </section>
             </section>
 <!-- ========================================================== NEXT ===================================================== -->
@@ -284,7 +684,7 @@
         </div>
     </div>
     <script>
-        
+
 
             // Full list of configuration options available here:
             // https://github.com/hakimel/reveal.js#configuration
@@ -293,6 +693,7 @@
                 progress: true,
                 history: true,
                 center: true,
+                width: 1200,
 
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
                 transition: Reveal.getQueryHash().transition || 'default', // none/fade/slide/convex/concave/zoom
@@ -312,7 +713,7 @@
                 ]
             });
 
-        
+
     </script>
 </body>
 </html>
