@@ -125,13 +125,44 @@
                         console.log(`Hello, ${name}!`);
                     </code>
                 </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        &lt;div id="js-element"&gt;initial content&lt;/div&gt;<br>
+                        &lt;script&gt;<br>
+                            var name = "Matteo";<br>
+                            var element = document.getElementById('js-element');<br>
+                            element.innerHTML = `Hello, ${name}!`;<br>
+                        &lt;/script&gt;
+                    </code>
+                </section>
+    <!-- ========================================================== Default Parameters ===================================================== -->
+                <section>
+                    <h2>Default Parameter Value</h2>
+                    <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. <br>This means that you no longer have to do <i>x = x || {};</i></p>
+                    <code class="prettyprint">
+                        var f = function(x = 5){return x + 1};<br>
+                        <!-- var f = (x = 5) => x + 1; -->
+                    </code>
+                </section>   
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        var getUser = function(id = me){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$.get('api/user/' + id, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(res){return res}, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(e){throw new Error(e)} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;); <br>
+                        }
+                    </code>
+                </section>   
     <!-- ========================================================== Arrow Functions ===================================================== -->
                 <section>
                     <h2>Arrow Functions</h2>
                     <p>The goal of Arrow Functions is to address and resolve several common pain points of traditional Function Expression:</p>
                     <ul>
                         <li>Lexical this binding</li>
-                        <li>Shorter syntactical form (() => {} vs. function () {})</li>
+                        <li>Shorter syntactical form</li>
                     </ul>
                     <code class="prettyprint">
                         //before <br>
@@ -143,15 +174,17 @@
                         console.log(f(2));
                     </code>
                 </section>
-    <!-- ========================================================== Default Parameters ===================================================== -->
                 <section>
-                    <h2>Default Parameter Value</h2>
-                    <p>Default parameter values allow you to initialize parameters if they were not explicitly supplied. <br>This means that you no longer have to do options = options || {};</p>
+                    <h2>In Practice</h2>
                     <code class="prettyprint">
-                        var f = function(x = 5){return x + 1};<br>
-                        var f = (x = 5) => x + 1;
+                        var user; <br><br>
+                        getUser() <br>
+                        .then( <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;res => user = res, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;e => throw new Error(e) <br>
+                        ); <br>
                     </code>
-                </section>      
+                </section>
     <!-- ========================================================== REST ===================================================== -->
                 <section>
                     <h2>REST</h2>
@@ -159,14 +192,28 @@
                     Basically your parameters are convertend in an array </p>
                     <code class="prettyprint">
                         var f = function(...args){ <br>
-                            var tot = 0; <br>
-                            for (var i = 0; i < args.length; i++ ){ <br>
-                                tot += args[i]; <br>
-                            } <br>
-                            return tot/args.length; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var tot = 0; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i < args.length; i++ ){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tot += args[i]; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return tot/args.length; <br>
                         } <br>
                         <br> <br>
                         f(12, 8, 16, 32); //17
+                    </code>
+                </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <code class="prettyprint">
+                        var cart = {list: []}; <br>
+                        cart.add = function(...items){ <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;items.forEach(item => this.list.push(item)); <br>
+                        }; <br>
+                        <br>
+                        cart.add('ball'); <br>
+                        cart.add('tree', 'soap');
+                        <br><br>
+                        console.log(cart.list);
                     </code>
                 </section>
     <!-- ========================================================== SPREAD ===================================================== -->
@@ -177,6 +224,23 @@
                         var args = [12, 99, 17] <br>
                         var f = (x, y, z) => Math.min(x, y, z);<br>
                         f(...args);
+                    </code>
+                </section>
+                <section>
+                    <h2>In Practice</h2>
+                    <p>This example rely on <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> and <a href="https://lodash.com">Lodash</a></p>
+                    <code class="prettyprint">
+                        var targetFunction = _.curry(function(a,b,c)); <br>
+                        targetFunction('Hello'); <br>
+                        <br>
+                        var functionList = [fn1, fn2]; <br>
+                        // fn1 => return name | fn2 => return surname;<br>
+                        Promise //bluebird <br>
+                        .all(functionList) //accept an array of Promise <br>
+                        .then( function(res){ //receive an array <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;//spread the array into arguments <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;targetFunction(...res); <br>
+                        }); <br>
                     </code>
                 </section>
             </section>
