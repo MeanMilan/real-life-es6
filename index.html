@@ -8,6 +8,7 @@
     <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer="defer"></script>
     <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    <!-- <link rel="stylesheet" href="bower_components/reveal.js/css/print/pdf.css"> -->
     <link rel="stylesheet" href="css/main.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -137,7 +138,7 @@
     </section>
 
     <section>
-        <img src="../images/jsturd.png">
+        <img src="images/jsturd.png">
     </section>
 
 </section>
@@ -319,16 +320,16 @@
                  <section>
                     <code class="prettyprint">
                         for (var i = 0; i < 3; i++) { <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;var j = i * i; <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;var j = 1 * i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); //0 //1 //2<br>
                         } <br>
-                        console.log(j); //  4
+                        console.log(j); // 3
                    </code>
 
                    <code class="prettyprint">
                         for (var i = 0; i < 3; i++) { <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;let j = i * i; <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;let j = 1 * i; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(j); //0 //1 //2<br>
                         } <br>
                         console.log(j); // will throw ReferenceError
                    </code>
@@ -463,8 +464,8 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;console.log(word); <br>
                         } <br><br>
 
-                        //Hello
-                        //world
+                        //Hey <br>
+                        //you
 
                     </code>
                     <br>
@@ -564,6 +565,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;function(value){ <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('yeah :' + value); <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;}, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;//reject <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;function(error){ <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('oh no'); <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(error); <br>
@@ -641,7 +643,8 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gen.next(promiseResult); <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;});<br>
                     } <br><br>
-
+                    
+                    //loop me <br>
                     nextStep();
                     </code>
                 </section>
@@ -658,6 +661,21 @@
                         })();
                     </code>
 
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Suggested readings</h2>
+                    <ul class="block">
+                        <li>Compatibility Table <a href="http://kangax.github.io/compat-table/es6/">http://kangax.github.io/compat-table/es6/</a></li>
+                        <li>History of Javascript  <a href="http://dailyjs.com/history-of-javascript.html">http://dailyjs.com/history-of-javascript.html</a></li>
+                        <li>The Birth and Death of Javascript <a href="https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript">https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript</a></li>
+                        <li>LightWeight ES6 Features <a href="http://colintoh.com/blog/lightweight-es6-features">http://colintoh.com/blog/lightweight-es6-features</a></li>
+                        <li>Use ES6 Today <a href="http://code.tutsplus.com/articles/use-ecmascript-6-today--net-31582">http://code.tutsplus.com/articles/use-ecmascript-6-today--net-31582</a></li>
+                        <li>Block Scope <a href="http://ariya.ofilabs.com/2013/05/es6-and-block-scope.html">http://ariya.ofilabs.com/2013/05/es6-and-block-scope.html</a> (and related posts)</li>
+                        <li>ES6 Feature Proposal <a href="http://tc39wiki.calculist.org/es6/">http://tc39wiki.calculist.org/es6/</a></li>
+                        <li>Promises A+ <a href="https://promisesaplus.com/">https://promisesaplus.com/</a></li>
+                    </ul>
                 </section>
             </section>
 <!-- ========================================================== NEXT ===================================================== -->
